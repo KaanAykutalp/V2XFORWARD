@@ -1,0 +1,58 @@
+# config.yaml
+# Simulation parameters
+TX_RANGE: 300
+BROADCAST_INTERVAL: 30
+CW_MIN: 2
+CW_MAX: 5
+step_length: 0.1
+tx_range: 300
+simulation_duration: 200
+beacon_slot: 2
+scenario_type: 'SUMO'
+sumo_cfg_file: "/home/dante/code/SDN/SUMO/map.sumo.cfg"
+random_seed: 34
+traci_port: 8813
+sumo_gui: True
+event_trigger_time: 10.0  # seconds
+
+# Packet parameters
+Events_packet_size: 314 #Bytes
+Beacon_packet_size: 113 #Bytes
+
+# Channel parameters
+bit_rate: 2.62 #Mbps
+
+# Propagation Model
+# Communication parameters (IEEE 802.11p) and power loss
+propagation_model: "LogDistance"  # Use LogDistance model for non-line-of-sight (urban/highway) environments
+tx_power_dbm: 23.0                # Transmit power in dBm (23 dBm = 200 mW, typical for V2X)
+sensitivity_dbm: -90.0           # Receiver sensitivity in dBm (depends on receiver and modulation scheme)
+data_rate_mbps: 6.0              # Data rate in Mbps (standard DSRC rates are 3, 6, 12, 24 Mbps, etc.)
+channel_frequency_ghz: 5.9       # Channel frequency in GHz (5.9 GHz is reserved for V2X applications)
+log_distance_exponent: 2.7       # Path loss exponent (urban: 2.7–3.5; highway: 2.0–2.5)
+reference_distance: 1.0          # Reference distance in meters (usually set to 1 m)
+path_loss_at_reference: 47.0     # Path loss at reference distance in dB (calculated via Friis for 5.9 GHz)
+tx_antenna_gain_dbm: 3.0         # Transmit antenna gain in dBi (typical for onboard vehicle antennas)
+rx_antenna_gain_dbm: 3.0         # Receive antenna gain in dBi (same as above)
+slot_time: 1.3e-5
+sifs: 3.2e-5
+difs: 5.8e-5
+phy_overhead_time: 4.0e-5       # PHY overhead (preamble + signal) in seconds
+ack_size_bytes: 14
+collision_probability: 0.1        # Probability of collision on each transmission attempt
+max_retransmissions: 4           # Max number of retransmissions before failure
+cw_min: 15                       # Initial contention window
+cw_max: 1023                     # Max contention window size
+
+# first tanks info
+First_t_id: None
+# forwarding algorithm
+forwarding_algorithm: 'greedy'
+cbf_timer_min: 0.001  # 1 ms
+cbf_timer_max: 0.100
+
+
+# log_path Change to your own path
+log_sumo_path: '/home/dante/code/SDN/SUMO/Test2_0/log_sumo.txt'
+log_running_path: '/home/dante/code/SDN/SUMO/Test2_0/log_running.txt'
+
